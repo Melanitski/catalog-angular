@@ -7,16 +7,21 @@ import { ItemService } from './item.service';
   template: `
   <!-- this is the new syntax for ng-repeat -->
   <ul>
-    <li *ngFor="let item of items">
+    <li *ngFor="let item of items" (click)="selectItem(item)">
         {{item.name}}
     </li>
   </ul>
+  <item-details [item]="selectedItem"></item-details>
   `
 })
 export class ItemListComponent {
   items: Item[] = [];
-  constructor(private _itemService : ItemService){ }
-  ngOnInit(){
+  selectedItem: Item;
+  constructor(private _itemService: ItemService) { }
+  ngOnInit() {
     this.items = this._itemService.getAll();
+  }
+  selectItem(item: Item) {
+    this.selectedItem = item;
   }
 }
