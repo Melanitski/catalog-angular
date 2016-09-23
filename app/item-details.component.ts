@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Response } from '@angular/http';
 import { Item } from './item';
 import { ItemService } from './item.service';
 
@@ -17,22 +18,29 @@ export class ItemDetailsComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(){
-        this.sub = this.route.params.subscribe(params => {
-          let id = Number.parseInt(params['id']);
-          this.item = this.itemService.get(id);
-        });
-    }
+          this.sub = this.route.params.subscribe(params => {
+            let id = Number.parseInt(params['id']);
+            console.log('getting item with id: ', id);
+            this.itemService
+              .get(id)
+              .subscribe(p => this.item = p);
+          });
+      }
 
-    ngOnDestroy(){
-        this.sub.unsubscribe();
-    }
+      ngOnDestroy(){
+          this.sub.unsubscribe();
+      }
 
-    gotoItemsList(){
-        let link = ['/items'];
-        this.router.navigate(link);
-    }
+      gotoItemList(){
+          let link = ['/items'];
+          this.router.navigate(link);
+      }
 
-    saveItemDetails(){
-      this.itemService.save(this.item);
-    }
+      saveItemDetails(){
+        this.itemService
+            .save(this.item)
+            .subscribe(
+              (r: Response) => {console.log('success');}
+            );
+      }
 }
