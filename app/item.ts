@@ -1,5 +1,7 @@
-export interface Item{
-    name: string;
-    description: string;
-    price: number;
+export interface Item {
+  id: number;
+  name: string;
+  alias: string;
+  description: string;
+  price: number;
 }
