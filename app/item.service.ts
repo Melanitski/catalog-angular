@@ -16,24 +16,33 @@ export class ItemService {
 
   constructor(private http: Http) {
   }
-  getAll(): Observable<Item[]> {
-    let items$ = this.http
-      .get(`${this.baseUrl}/items.json`, { headers: this.getHeaders() })
-      .map(mapItems);
-    return items$;
-  }
+  // getAll(): Observable<Item[]> {
+  //   let items$ = this.http
+  //     .get(`${this.baseUrl}/items.json`, { headers: this.getHeaders() })
+  //     .map(mapItems);
+  //   return items$;
+  // }
+
+  getAll() {
+   return this.http.get('http://localhost:3002/items.json');
+ }
 
   private getHeaders() {
     let headers = new Headers();
     headers.append('Accept', 'application/json');
     return headers;
   }
-  get(id: number): Observable<Item> {
-    let item$ = this.http
-      .get(`${this.baseUrl}/items/${id}`, {headers: this.getHeaders()})
-      .map(mapItem);
-      return item$;
+  // get(id: number): Observable<Item> {
+  //   let item$ = this.http
+  //     .get(`${this.baseUrl}/items/${id}`, {headers: this.getHeaders()})
+  //     .map(mapItem);
+  //     return item$;
+  // }
+  get(id: number){
+    return this.http.get('http://localhost:3002/items/' + id + '.json');
   }
+
+
   save(item: Item) : Observable<Response>{
       // this won't actually work because the StarWars API doesn't
       // is read-only. But it would look like this:
