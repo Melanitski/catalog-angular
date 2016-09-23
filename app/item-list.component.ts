@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Item } from './item';
-
+import { ItemService } from './item.service';
 
 @Component({
   selector: 'item-list',
@@ -8,17 +8,15 @@ import { Item } from './item';
   <!-- this is the new syntax for ng-repeat -->
   <ul>
     <li *ngFor="let item of items">
-     {{item.name}}
+        {{item.name}}
     </li>
   </ul>
   `
 })
-
-export class ItemListComponent{
-  items: Item[] = [
-    {name: 'iPhone 6', description: 'Description for iPhone 6', price: 600},
-    {name: 'iPhone 7', description: 'Description for iPhone 6', price: 849},
-    {name: 'Galaxy Note 7', description: 'Description for Galaxy Note 7', price: 750},
-  ];
-
+export class ItemListComponent {
+  items: Item[] = [];
+  constructor(private _itemService : ItemService){ }
+  ngOnInit(){
+    this.items = this._itemService.getAll();
+  }
 }
