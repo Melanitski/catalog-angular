@@ -22,6 +22,10 @@ export class CategoryService {
    return this.http.get('http://localhost:3002/categories.json');
  }
 
+ // getItems(){
+ //   return this.http.get('http://localhost:3002/categories/'+ id +'items.json');
+ // }
+
   private getHeaders() {
     let headers = new Headers();
     headers.append('Accept', 'application/json');

@@ -21,13 +21,13 @@ export class ItemListComponent implements OnInit{
   constructor(private itemService : ItemService){ }
 
 
-  getAll() {
-    this.itemService.getAll()
-      .subscribe(response => this.items = response.json());
-  }
-
+  // getAll() {
+  //   this.itemService.getAll()
+  //     .subscribe(response => this.items = response.json());
+  // }
+  //
   ngOnInit() {
-    this.getAll();
+    // this.getAll();
   }
   // ngOnInit(){
   //   this.itemService

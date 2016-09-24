@@ -23,8 +23,8 @@ export class ItemService {
   //   return items$;
   // }
 
-  getAll() {
-   return this.http.get('http://localhost:3002/items.json');
+  getAll(alias: string) {
+   return this.http.get('http://localhost:3002/categories/' + alias + '/items.json');
  }
 
   private getHeaders() {

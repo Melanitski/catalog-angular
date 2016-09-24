@@ -1,0 +1,12 @@
+<section *ngIf="category">
+  <section>
+    <h2>You selected: {{category.alias}}</h2>
+    <ul>
+      <li *ngFor="let item of items">
+          <a href="#" [routerLink]="['/items', item.alias]">
+        {{item.name}}
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section>

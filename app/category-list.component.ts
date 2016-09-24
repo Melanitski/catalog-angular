@@ -8,7 +8,7 @@ import { CategoryService } from './category.service';
   <!-- this is the new syntax for ng-repeat -->
   <ul>
     <li *ngFor="let category of categories">
-        <a href="#" [routerLink]="['/category', category.alias]">
+        <a href="#" [routerLink]="['/categories', category.alias]">
       {{category.name}}
       </a>
     </li>
