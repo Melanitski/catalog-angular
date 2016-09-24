@@ -31,8 +31,8 @@ export class ItemDetailsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      let id = +params['id'];
-      this.itemService.get(id)
+      let alias = params['alias'];
+      this.itemService.get(alias)
         .subscribe(response => this.item = response.json());
     });
   }
@@ -45,12 +45,12 @@ export class ItemDetailsComponent implements OnInit, OnDestroy {
     let link = ['/items'];
     this.router.navigate(link);
   }
-
-  saveItemDetails() {
-    this.itemService
-      .save(this.item)
-      .subscribe(
-      (r: Response) => { console.log('success'); }
-      );
-  }
+  // 
+  // saveItemDetails() {
+  //   this.itemService
+  //     .save(this.item)
+  //     .subscribe(
+  //     (r: Response) => { console.log('success'); }
+  //     );
+  // }
 }

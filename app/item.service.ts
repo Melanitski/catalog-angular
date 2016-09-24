@@ -38,22 +38,10 @@ export class ItemService {
   //     .map(mapItem);
   //     return item$;
   // }
-  get(id: number){
-    return this.http.get('http://localhost:3002/items/' + id + '.json');
+  get(alias: string){
+    return this.http.get('http://localhost:3002/items/' + alias + '.json');
   }
 
-
-  save(item: Item) : Observable<Response>{
-      // this won't actually work because the StarWars API doesn't
-      // is read-only. But it would look like this:
-      return this
-        .http
-        .put(`${this.baseUrl}/items/${item.id}`, JSON.stringify(item), {headers: this.getHeaders()});
-    }
-  private clone(object: any) {
-    // hack
-    return JSON.parse(JSON.stringify(object));
-  }
 }
 
 

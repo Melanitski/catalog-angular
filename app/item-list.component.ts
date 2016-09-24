@@ -8,7 +8,7 @@ import { ItemService } from './item.service';
   <!-- this is the new syntax for ng-repeat -->
   <ul>
     <li *ngFor="let item of items">
-        <a href="#" [routerLink]="['/items', item.id]">
+        <a href="#" [routerLink]="['/items', item.alias]">
       {{item.name}}
       </a>
     </li>

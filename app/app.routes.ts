@@ -10,7 +10,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'items/:id',
+    path: 'items/:alias',
     component: ItemDetailsComponent
   },
   // map '/' to '/items' as our default route
