@@ -4,16 +4,7 @@ import { CategoryService } from './category.service';
 
 @Component({
   selector: 'category-list',
-  template: `
-  <!-- this is the new syntax for ng-repeat -->
-  <ul>
-    <li *ngFor="let category of categories">
-        <a href="#" [routerLink]="['/categories', category.alias]">
-      {{category.name}}
-      </a>
-    </li>
-  </ul>
-  `
+    templateUrl: 'app/category-list.component.html'
 })
 export class CategoryListComponent implements OnInit{
   categories: Category[] = [];

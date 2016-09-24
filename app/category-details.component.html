@@ -1,6 +1,7 @@
+<category-list></category-list>
 <section *ngIf="category">
   <section>
-    <h2>You selected: {{category.alias}}</h2>
+    <h2> {{category.name}}:</h2>
     <ul>
       <li *ngFor="let item of items">
           <a href="#" [routerLink]="['/items', item.alias]">

@@ -32,22 +32,27 @@ export class CategoryDetailsComponent implements OnInit, OnDestroy {
   //       });
   //   }
 
-    // getItems() {
-    //   this.itemService.getAll()
-    //     .subscribe(response => this.items = response.json());
-    // }
+  // getItems() {
+  //   this.itemService.getAll()
+  //     .subscribe(response => this.items = response.json());
+  // }
 
 
   ngOnInit() {
+
     this.sub = this.route.params.subscribe(params => {
-      let alias = params['alias'];
-      this.categoryService.get(alias)
-        .subscribe(response => this.category = response.json());
+      if (params['alias']) {
+        let alias = params['alias'];
+        this.categoryService.get(alias)
+          .subscribe(response => this.category = response.json());
+      }
     });
     this.sub = this.route.params.subscribe(params => {
-      let id = params['alias'];
-      this.itemService.getAll(id)
-        .subscribe(response => this.items = response.json());
+      if (params['alias']) {
+        let id = params['alias'];
+        this.itemService.getAll(id)
+          .subscribe(response => this.items = response.json());
+      }
     });
   }
 

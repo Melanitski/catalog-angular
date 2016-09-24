@@ -1,16 +1,19 @@
 <section *ngIf="item">
   <section>
     <h2>You selected: {{item.name}}</h2>
-    <h3>Description</h3>
+    <h3>About Product</h3>
+    <h4>Name</h4>
     <p>
       {{item.name}}
     </p>
+    <h4>Description</h4>
     <p>
       {{item.description}}
     </p>
+    <h4>Currency</h4>
     <p>
       {{item.price | currency}}
     </p>
   </section>
-  <button (click)="gotoItemList()">Back to item list</button>
+  <button class="btn btn-lg" (click)="goBack()">Back to item list</button>
   <section>

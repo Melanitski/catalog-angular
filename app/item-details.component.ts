@@ -41,11 +41,15 @@ export class ItemDetailsComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  gotoItemList() {
-    let link = ['/items'];
+  gotoItemList(alias: String) {
+    let link = ['/category/'+ alias];
     this.router.navigate(link);
   }
-  // 
+
+  goBack(): void {
+  window.history.back();
+}
+  //
   // saveItemDetails() {
   //   this.itemService
   //     .save(this.item)

@@ -1,0 +1,7 @@
+<ul class="nav nav-pills">
+  <li *ngFor="let category of categories" role="presentation">
+      <a href="#" [routerLink]="['/categories', category.alias]">
+    {{category.name}}
+    </a>
+  </li>
+</ul>

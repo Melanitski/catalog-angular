@@ -4,21 +4,12 @@ import { ItemService } from './item.service';
 
 @Component({
   selector: 'item-list',
-  template: `
-  <!-- this is the new syntax for ng-repeat -->
-  <ul>
-    <li *ngFor="let item of items">
-        <a href="#" [routerLink]="['/items', item.alias]">
-      {{item.name}}
-      </a>
-    </li>
-  </ul>
-  `
+  templateUrl: 'app/item-list.component.html'
 })
-export class ItemListComponent implements OnInit{
+export class ItemListComponent implements OnInit {
   items: Item[] = [];
 
-  constructor(private itemService : ItemService){ }
+  constructor(private itemService: ItemService) { }
 
 
   // getAll() {
