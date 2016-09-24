@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ItemService } from './item.service';
+import { CategoryService } from './category.service';
 
 @Component({
   selector: 'my-app',
@@ -8,7 +9,7 @@ import { ItemService } from './item.service';
   <router-outlet></router-outlet>`,
   // HERE! This registers the PeopleService
   // now Angular 2 knows to inject it when required
-  providers: [ItemService]
+  providers: [ CategoryService, ItemService ]
 })
 export class AppComponent {
   title: String = 'Catalog';

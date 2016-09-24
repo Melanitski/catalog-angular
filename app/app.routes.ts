@@ -1,9 +1,14 @@
 import { Routes, RouterModule } from '@angular/router';
+import { CategoryListComponent } from './category-list.component';
 import { ItemListComponent } from './item-list.component';
 import { ItemDetailsComponent } from './item-details.component';
 // Route config let's you map routes to components
 const routes: Routes = [
   // map '/items' to the people list component
+  {
+    path: 'categories',
+    component: CategoryListComponent,
+  },
   {
     path: 'items',
     component: ItemListComponent,
@@ -16,7 +21,7 @@ const routes: Routes = [
   // map '/' to '/items' as our default route
   {
     path: '',
-    redirectTo: '/items',
+    redirectTo: '/categories',
     pathMatch: 'full'
   },
 ];
