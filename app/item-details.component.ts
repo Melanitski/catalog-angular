@@ -17,18 +17,6 @@ export class ItemDetailsComponent implements OnInit, OnDestroy {
     private router: Router) {
   }
 
-  // ngOnInit(){
-  //       this.sub = this.route.params.subscribe(params => {
-  //         let id = Number.parseInt(params['id']);
-  //         console.log('getting item with id: ', id);
-  //         this.itemService
-  //           .get(id)
-  //           .subscribe(p => this.item = p);
-  //       });
-  //   }
-
-
-
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       let alias = params['alias'];
@@ -49,12 +37,4 @@ export class ItemDetailsComponent implements OnInit, OnDestroy {
   goBack(): void {
   window.history.back();
 }
-  //
-  // saveItemDetails() {
-  //   this.itemService
-  //     .save(this.item)
-  //     .subscribe(
-  //     (r: Response) => { console.log('success'); }
-  //     );
-  // }
 }

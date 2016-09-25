@@ -16,12 +16,6 @@ export class ItemService {
 
   constructor(private http: Http) {
   }
-  // getAll(): Observable<Item[]> {
-  //   let items$ = this.http
-  //     .get(`${this.baseUrl}/items.json`, { headers: this.getHeaders() })
-  //     .map(mapItems);
-  //   return items$;
-  // }
 
   getAll(alias: string) {
    return this.http.get('http://localhost:3002/categories/' + alias + '/items.json');

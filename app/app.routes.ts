@@ -23,7 +23,6 @@ const routes: Routes = [
     path: 'items/:alias',
     component: ItemDetailsComponent
   },
-  // map '/' to '/items' as our default route
   {
     path: '',
     redirectTo: '/categories',

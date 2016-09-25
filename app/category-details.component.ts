@@ -22,22 +22,6 @@ export class CategoryDetailsComponent implements OnInit, OnDestroy {
     private router: Router) {
   }
 
-  // ngOnInit(){
-  //       this.sub = this.route.params.subscribe(params => {
-  //         let id = Number.parseInt(params['id']);
-  //         console.log('getting item with id: ', id);
-  //         this.itemService
-  //           .get(id)
-  //           .subscribe(p => this.item = p);
-  //       });
-  //   }
-
-  // getItems() {
-  //   this.itemService.getAll()
-  //     .subscribe(response => this.items = response.json());
-  // }
-
-
   ngOnInit() {
 
     this.sub = this.route.params.subscribe(params => {
@@ -59,17 +43,4 @@ export class CategoryDetailsComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
-
-  // gotoItemList() {
-  //   let link = ['/items'];
-  //   this.router.navigate(link);
-  // }
-  //
-  // saveItemDetails() {
-  //   this.itemService
-  //     .save(this.item)
-  //     .subscribe(
-  //     (r: Response) => { console.log('success'); }
-  //     );
-  // }
 }

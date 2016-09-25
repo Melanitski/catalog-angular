@@ -20,9 +20,4 @@ export class CategoryListComponent implements OnInit{
   ngOnInit() {
     this.getAll();
   }
-  // ngOnInit(){
-  //   this.itemService
-  //    .getAll()
-  //    .subscribe(p => this.items = p)
-  // }
 }
