@@ -4,6 +4,8 @@ import { CategoryService } from './category.service';
 
 @Component({
   selector: 'my-app',
+  // TODO extract to tempalate
+  // TODO pug
   template: `
   <h1>  {{title}} </h1>
   <router-outlet></router-outlet>

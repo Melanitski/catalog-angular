@@ -7,6 +7,8 @@ import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class CategoryService {
+
+  // TODO extact root URL
   private baseUrl: string = 'http://localhost:3002';
 
   constructor(private http: Http) {
@@ -23,10 +25,14 @@ export class CategoryService {
   }
   get(alias: string){
     return this.http.get('http://localhost:3002/categories/' + alias + '.json');
+    // categories#show
+    // items#index
+    // /categories -> categories#index -> category list
+    // /categories/:id -> categories#show -> category info (Not need)
+    // /categories/:id/items -> items#index
+    // /categories/:category_id/items/:id -> items#show (Not need)
   }
-
 }
-
 
 function mapCategorys(response:Response): Category[]{
    console.log(response);
@@ -35,7 +41,7 @@ function mapCategorys(response:Response): Category[]{
 
 function toCategory(r:any): Category{
   let item = <Category>({
-    id: extractId(r),
+    id: extractId(r), //TODO get from backend response
     name: r.name,
     alias: r.alias,
   });

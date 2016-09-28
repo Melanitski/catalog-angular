@@ -8,16 +8,9 @@ import { ItemDetailsComponent } from './item-details.component';
 const routes: Routes = [
   // map '/items' to the people list component
   {
-    path: 'categories',
-    component: CategoryListComponent,
-  },
-  {
-    path: 'categories/:alias',
-    component: CategoryDetailsComponent
-  },
-  {
-    path: 'categories/:alias/items',
-    component: ItemListComponent,
+    path: ':alias/:page',
+    // TODO page 1 don't display in browser URL
+    component: ItemsListComponent
   },
   {
     path: 'items/:alias',
@@ -25,6 +18,7 @@ const routes: Routes = [
   },
   {
     path: '',
+    // TODO controller for categories load. Redirect to first category
     redirectTo: '/categories',
     pathMatch: 'full'
   },

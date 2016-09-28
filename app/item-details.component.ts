@@ -29,12 +29,13 @@ export class ItemDetailsComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
+  // TODO remove useless method
   gotoItemList(alias: String) {
     let link = ['/category/'+ alias];
     this.router.navigate(link);
   }
 
   goBack(): void {
-  window.history.back();
-}
+    window.history.back();
+  }
 }

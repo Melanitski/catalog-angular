@@ -4,6 +4,7 @@ import { Item } from './item';
 import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 
+// TODO remove mock data
 const ITEMS: Item[] = [
   { id: 1, name: 'iPhone 6', alias: 'iphone6', description: 'Description for iPhone 6', price: 600 },
   { id: 2, name: 'iPhone 7', alias: 'iphone7', description: 'Description for iPhone 6', price: 849 },
@@ -26,12 +27,7 @@ export class ItemService {
     headers.append('Accept', 'application/json');
     return headers;
   }
-  // get(id: number): Observable<Item> {
-  //   let item$ = this.http
-  //     .get(`${this.baseUrl}/items/${id}`, {headers: this.getHeaders()})
-  //     .map(mapItem);
-  //     return item$;
-  // }
+
   get(alias: string){
     return this.http.get('http://localhost:3002/items/' + alias + '.json');
   }
@@ -46,9 +42,10 @@ function mapItems(response:Response): Item[]{
    return response.json().map(toItem)
 }
 
+// TODO use mapping
 function toItem(r:any): Item{
   let item = <Item>({
-    id: extractId(r),
+    id: extractId(r), // TODO use data from API
     name: r.name,
     price: r.price,
     alias: r.alias,
@@ -60,7 +57,7 @@ function toItem(r:any): Item{
 
 // to avoid breaking the rest of our app
 // I extract the id from the person url
-function extractId(itemData:any){
+function extractId(itemData:any) {
  let extractedId = itemData.url.replace('http://localhost:3002/items/','').replace('/','');
  return parseInt(extractedId);
 }

@@ -14,7 +14,7 @@ import { ItemService } from './item.service';
 export class CategoryDetailsComponent implements OnInit, OnDestroy {
   category: Category;
   items: Item[];
-  sub: any;
+  sub: any; // TODO make clear unsubscribe. Remove memory leak
 
   constructor(private categoryService: CategoryService,
     private itemService: ItemService,
